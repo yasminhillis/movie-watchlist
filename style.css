@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    /* background-color: cadetblue; */
+}
+
+.header-wrapper{
+    width: 85%;
+    height: 208px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #fff;
+}
+
+header {
+    background-image: url('images/banner.png');
+    background-color: #0E0E0E;
+    display: flex;
+    justify-content: center;
+}
+
+.find-film-heading {
+    font-weight: 800;
+    /* font-size: 43px; */
+    font-size: 2rem;
+    /* margin-top: 0; */
+    /* border: 1px solid salmon */
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.search-input {
+     /* margin-left: 35px; 
+     margin-top: 9px;   */
+     border: none;
+     /* height: 23px; */
+}
+
+.search-wrapper {
+    width: 342px;
+   height: 38px;
+   /* margin: -13px auto 0; */
+    background-color: #fff;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: darksalmon; */
+    gap: 9px;
+    border: 1px solid #D1D5DB;
+}
+
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: ; */
+    /* margin-top: -19px; */
+    width: 84%;
+    margin: -19px auto 0;
+    /* border: 1px solid red; */
+}
+
+.search-icon {
+    /* position: absolute; */
+    /* left: 30px; */
+    /* top: 205px; */
+    align-self: center;
+    justify-self: flex-start;
+    margin-left: 10px;
+}
+
+.search-btn {
+    width: 120px;
+    height: 39.4px;
+    /* border-radius: 6px; */
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border: 1px solid #D1D5DB;
+    background-color: #F9FAFB;
+    /* padding: 9px 11px; */
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    min-height: 40vh;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-state__img {
+    width: 70px;
+    height: 61px;
+}
+
+.empty-state__text {
+    color: #DFDDDD;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 9px;
+}
