@@ -6,7 +6,10 @@ console.log(watchlist.length);
 
 function getMovies () {
     let html = '';
-    if (watchlist.length > 0) {
+    if (watchlist.length === 0)  {
+      renderEmptyState();
+      return;
+    }
     watchlist.map(movie => {
         html += `
         <div class="movie-item" data-id=${movie.movieId}>
@@ -52,18 +55,48 @@ function getMovies () {
         `
     })
     movieList.innerHTML = html
-  }
 }
 
-getMovies()
+function renderEmptyState() {
+  movieList.innerHTML = `
+    <h4 class="empty-list-heading">
+      Your watchlist is looking a little empty...
+    </h4>
+    <a href="index.html">
+      <div class="add-movies">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M9 18C13.9706 18 18 13.9706 18 9C18 4.02944 13.9706 0 9 0C4.02944 0 0 4.02944 0 9C0 13.9706 4.02944 18 9 18ZM10.125 5.625C10.125 5.00368 9.62132 4.5 9 4.5C8.37868 4.5 7.875 5.00368 7.875 5.625V7.875H5.625C5.00368 7.875 4.5 8.37868 4.5 9C4.5 9.62132 5.00368 10.125 5.625 10.125H7.875V12.375C7.875 12.9963 8.37868 13.5 9 13.5C9.62132 13.5 10.125 12.9963 10.125 12.375V10.125H12.375C12.9963 10.125 13.5 9.62132 13.5 9C13.5 8.37868 12.9963 7.875 12.375 7.875H10.125V5.625Z"
+            fill="#363636"
+          />
+        </svg>
+        Let’s add some movies!
+      </div>
+    </a>
+  `;
+}
 
-document.addEventListener('click', function(e){
+
+
+movieList.addEventListener('click', function(e){
     let movieId = e.target.closest('.movie-item').dataset.id;
+    let removeBtn = e.target.closest('.remove-btn');
+    if (!removeBtn) return;
     
-    if (e.target.closest('.remove-btn')) {
-        watchlist = watchlist.filter(item => item.movieId !== movieId)
-        localStorage.setItem('watchlist', JSON.stringify(watchlist))
+    watchlist = watchlist.filter(item => item.movieId !== movieId)
+    localStorage.setItem('watchlist', JSON.stringify(watchlist))
 
-        getMovies ()
-    }
+
+    getMovies ()
+    
 })
+
+getMovies()
